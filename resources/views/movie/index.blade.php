@@ -21,7 +21,7 @@
             <tbody>
                 <tr>
                     <td style="color: red; text-align: center;">
-                        No Post has been Created!
+                        No Movie has been Created!
                     </td>
                 </tr>
             </tbody>
