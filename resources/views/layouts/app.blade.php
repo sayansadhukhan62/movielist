@@ -43,7 +43,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/movie') }}">
+                <a class="navbar-brand" href="{{ url('/movie') }}" style="">
                     <span><img class="brandicon" src="{{asset('/storage/favicon.ico')}}"></span>
                     Movie+
                 </a>
@@ -72,7 +72,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <b>{{ Auth::user()->name }}</b> <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

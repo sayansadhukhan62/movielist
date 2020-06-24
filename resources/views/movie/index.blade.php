@@ -10,7 +10,7 @@
     <div class="card-header">
         <span style="font-size:24px;color:white">Movie List</span>
         @if(auth()->user()->role_id==1)
-        <a class="btn btn-success float-right" href="{{ route('movie.create') }}">
+        <a class="btn btn-primary float-right" href="{{ route('movie.create') }}">
             Add Movie
         </a>
         @endif
@@ -64,7 +64,7 @@
                 </td>
                 @if(auth()->user()->role_id==1)
                 <td>
-                    <a class="btn btn-info btn-sm" href="{{ route('movie.edit',$movie->id )}}" style="margin-bottom: 10px;">
+                    <a class="btn btn-primary btn-sm" href="{{ route('movie.edit',$movie->id )}}" style="margin-bottom: 10px;">
                         Edit
                     </a>
                     
