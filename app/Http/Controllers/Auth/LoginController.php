@@ -53,7 +53,14 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $detail = Socialite::driver($provider)->stateless()->user();
+         try
+        {
+            $detail = Socialite::driver($provider)->stateless()->user();
+        }
+        catch(\Exception $e)
+        {
+            return redirect('/');
+        }
 
         $user = User::where('provider',$provider)->where('provider_id',$detail->id)->first();
 
