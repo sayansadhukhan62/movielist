@@ -26,7 +26,7 @@
 	<div class="input-group mb-3">
 		<input type="text" class="form-control" id="searchid" name="search" required>&nbsp;
   	<div class="input-group-prepend">
-    	<button class="btn btn-success" id="search" style="border-radius: 4px;">Search</button>
+    	<button class="btn btn-primary" id="search" style="border-radius: 4px;">Search</button>
   	</div>
 	</div>
 @endif
@@ -69,7 +69,7 @@
 </div>
 
 <div class="form-group">
-	<button type="submit" class="btn btn-success">{{isset(($movie)) ? 'Update Movie' : 'Create Movie' }}</button>	
+	<button type="submit" class="btn btn-primary">{{isset(($movie)) ? 'Update Movie' : 'Create Movie' }}</button>	
 </div>
 </form>
 </div>

@@ -10929,9 +10929,39 @@ a.text-dark:focus {
 }
 
 .brandicon{
-  width: 23px;
-  height: 23px;
+  width: 36px;
+  height: 36px;
   position: relative;
-  bottom: 3px;
+  bottom: 2px;
 }
+
+.avatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+@font-face {
+  font-family: 'Coda-Heavy';
+  src: url('Coda-Heavy.ttf') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('Coda-Heavy.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+.brandname{
+  font-size: 30px;
+  font-family: Coda-Heavy;
+  background-color:#f5c518;
+  border-radius: 8%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.username{
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  position: relative;
+  top: 2px;
+}
+
+
 

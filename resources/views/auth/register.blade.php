@@ -67,7 +67,8 @@
                                     {{ __('Register') }}
                                 </button>
 
-                                <a class="btn btn-primary" href="{{url('/redirect')}}" style="height:36px;">
+                                <a class="btn btn-primary" href="login/facebook" style="height:36px;" 
+                                onclick="return true;">
                                      Register with
                                      <span style="position:relative; bottom:2px;">
                                     <img style="height:27px;" src="https://img.icons8.com/fluent/48/000000/facebook-new.png"/>

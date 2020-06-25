@@ -44,8 +44,9 @@
         <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/movie') }}" style="">
-                    <span><img class="brandicon" src="{{asset('/storage/favicon.ico')}}"></span>
-                    Movie+
+                    <div>
+                    <span class="brandname"><img class="brandicon" src="{{asset('/storage/favicon.ico')}}">Movie+</span>
+                </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -72,7 +73,10 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <b>{{ Auth::user()->name }}</b> <span class="caret"></span>
+                                    @if(Auth::user()->avatar)
+                                    <img class="avatar" src="{{ Auth::user()->avatar }}">
+                                    @endif
+                                    <span class="username">{{ Auth::user()->name }}</span> <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
