@@ -2,9 +2,6 @@
 
 @section('content')
 <div class="card mx-auto" style="width:500px;">
-<div class="card-header">
-	{{ isset($movie) ? 'Edit Movie' : 'Create Movie'}}	
-</div>
 <div class="card-body">
 
 	@if($errors->any())

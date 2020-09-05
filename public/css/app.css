@@ -10947,12 +10947,9 @@ a.text-dark:focus {
 }
 
 .brandname{
-  font-size: 30px;
+  font-size: 25px;
   font-family: Coda-Heavy;
-  background-color:#f5c518;
-  border-radius: 8%;
-  padding-right: 10px;
-  padding-left: 10px;
+  color: #f5c518;
 }
 
 .username{

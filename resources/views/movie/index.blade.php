@@ -7,14 +7,6 @@
     </div>
 @endif
 <div class="card mx-auto" style="width:1000px;">
-    <div class="card-header">
-        <span style="font-size:24px;color:white">Movie List</span>
-        @if(auth()->user()->role_id==1)
-        <a class="btn btn-primary float-right" href="{{ route('movie.create') }}">
-            Add Movie
-        </a>
-        @endif
-    </div>
     <div class="card-body">
         @if($movies->count()==0)
         <table>
