@@ -16,7 +16,10 @@ class MovieController extends Controller
     public function index()
     {
         $movie = Movie::all();
-        return view('movie.index')->with([
+        // return view('movie.index')->with([
+        //     'movies'=>$movie,
+        // ]);
+        return view('movie.index-vue')->with([
             'movies'=>$movie,
         ]);
     }
