@@ -13,4 +13,9 @@
         </div>
     </div>
 </div>
+<style>
+	#delete-btn{
+		margin-top: 5px;
+	}
+</style>
 @endsection

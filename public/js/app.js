@@ -2002,8 +2002,20 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteMovie: function deleteMovie(id, event) {
-      axios["delete"]('movie/' + id);
-      location.reload();
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios["delete"]('movie/' + id);
+          location.reload();
+        }
+      });
     }
   }
 });
@@ -37695,7 +37707,10 @@ var render = function() {
                   "a",
                   {
                     staticClass: "btn btn-info btn-sm",
-                    attrs: { href: "/movie/" + movie.id + "/edit" }
+                    attrs: {
+                      href: "/movie/" + movie.id + "/edit",
+                      id: "edit-btn"
+                    }
                   },
                   [_vm._v("Edit")]
                 ),
@@ -37705,6 +37720,7 @@ var render = function() {
                   {
                     staticClass: "btn btn-danger btn-sm",
                     staticStyle: { color: "#FFF" },
+                    attrs: { id: "delete-btn" },
                     on: {
                       click: function($event) {
                         return _vm.deleteMovie(movie.id)

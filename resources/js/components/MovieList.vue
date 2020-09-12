@@ -28,8 +28,8 @@
                     {{movie.description}}
                 </td>
                 <td v-if="user.role_id == '1'">
-                    <a class="btn btn-info btn-sm" :href="'/movie/'+movie.id+'/edit'">Edit</a>
-                    <a class="btn btn-danger btn-sm" @click="deleteMovie(movie.id)" style="color: #FFF">
+                    <a class="btn btn-info btn-sm" :href="'/movie/'+movie.id+'/edit'" id="edit-btn">Edit</a>
+                    <a class="btn btn-danger btn-sm" @click="deleteMovie(movie.id)" style="color: #FFF" id="delete-btn">
                         Remove
                     </a>
                 </td>
@@ -63,8 +63,20 @@
                 });
             },
             deleteMovie(id,event) {
-                axios.delete('movie/'+id);
-                location.reload();
+                Swal.fire({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert this!",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    axios.delete('movie/'+id);
+                    location.reload();
+                  }
+                })
             }
         }
 

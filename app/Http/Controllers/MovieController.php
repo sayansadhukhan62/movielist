@@ -135,10 +135,8 @@ class MovieController extends Controller
     {
         $movie = Movie::findOrFail($id);
         $movie -> delete();
-    
         session()->flash('message.level', 'success');
         session()->flash('message.content', 'Movie Deleted Succesfully!');
-        return redirect(route ('movie.index'));
     }
 
 }

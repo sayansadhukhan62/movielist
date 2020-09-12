@@ -23,7 +23,7 @@
 	<div class="input-group mb-3">
 		<input type="text" class="form-control" id="searchid" name="search" required>&nbsp;
   	<div class="input-group-prepend">
-    	<button class="btn btn-primary" id="search" style="border-radius: 4px;">Search</button>
+    	<button class="btn btn-info" id="search" style="border-radius: 4px;"><i class="fa fa-search" aria-hidden="true"></i></button>
   	</div>
 	</div>
 @endif
@@ -66,7 +66,7 @@
 </div>
 
 <div class="form-group">
-	<button type="submit" class="btn btn-primary">{{isset(($movie)) ? 'Update Movie' : 'Create Movie' }}</button>	
+	<button type="submit" class="btn btn-success">{{isset(($movie)) ? 'Update Movie' : 'Create Movie' }}</button>	
 </div>
 </form>
 </div>
@@ -77,33 +77,35 @@
 
 	$(document).ready(function() {
     	$("#search").click(function(){
-        var searchid = $('#searchid').val();
-        var settings = {
-			"async": true,
-			"crossDomain": true,
-			"url": "https://movie-database-imdb-alternative.p.rapidapi.com/?i=tt"+searchid+"&r=json",
-			"method": "GET",
-			"headers": {
-			"x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com",
-			"x-rapidapi-key": "775e0b174emsh7f8424dde9515c1p1f8244jsn0e109093189d"
-			}
-		}
-		$.ajax(settings).done(function (response) {
-		// console.log(response.Title);
-		$('#title').val(response.Title);
-		$('#description').val(response.Plot);
-		$('#method').val('imdb');
-		$('#image').prop('type', 'image');
-		$('#image').prop('src', response.Poster);
-		$('#imagelink').val(response.Poster);
-		$('#image').css({"width":"200px","height":"200px"});
-		// $('#image').removeAttr('required');​​​​​
-		});
-		
+	        var searchid = $('#searchid').val();
+	        if(searchid == ''){
+	        	Swal.fire("Warning!", "Empty Field!", "warning");
+	        }else{
+	        	var settings = {
+					"async": true,
+					"crossDomain": true,
+					"url": "https://movie-database-imdb-alternative.p.rapidapi.com/?i=tt"+searchid+"&r=json",
+					"method": "GET",
+					"headers": {
+					"x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com",
+					"x-rapidapi-key": "775e0b174emsh7f8424dde9515c1p1f8244jsn0e109093189d"
+					}
+				}
+				$.ajax(settings).done(function (response) {
+					if(response.Response == 'False'){
+						Swal.fire("Warning!", "Invalid IMDB ID!", "warning");
+					}else{
+						$('#title').val(response.Title);
+						$('#description').val(response.Plot);
+						$('#method').val('imdb');
+						$('#image').prop('type', 'image');
+						$('#image').prop('src', response.Poster);
+						$('#imagelink').val(response.Poster);
+						$('#image').css({"width":"200px","height":"200px"});
+					}
+				})
+	        }
     	}); 
-	});
-
-		
-
+	});	
 </script>
 @endsection

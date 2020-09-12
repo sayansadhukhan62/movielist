@@ -8,6 +8,8 @@
  <!-- CoreUI CSS -->
  <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">
  <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+ <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 
  <title>Movie+</title>
  </head>
@@ -60,6 +62,10 @@
  <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
  <script src="{{ mix('js/app.js') }}"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+ <script type="module">
+    import Swal from 'sweetalert2/src/sweetalert2.js';
+ </script>
  <script>
     if (window.location.hash && window.location.hash == '#_=_') {
         if (window.history && history.pushState) {
